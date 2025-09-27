@@ -1,0 +1,83 @@
+// Importing necessary modules and packages
+const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
+const app = express();
+const server = http.createServer(app);
+const userRoutes = require("./routes/user");
+const profileRoutes = require("./routes/profile");
+const courseRoutes = require("./routes/Course");
+const paymentRoutes = require("./routes/Payments");
+const contactUsRoute = require("./routes/Contact");
+const chatRoutes = require("./routes/Chat");
+const database = require("./config/database");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const { cloudinaryConnect } = require("./config/cloudinary");
+const fileUpload = require("express-fileupload");
+const dotenv = require("dotenv");
+const { initializeChatSocket } = require("./socketio/chatSocket");
+
+// Setting up port number
+const PORT = process.env.PORT || 4000;
+
+// Loading environment variables from .env file
+dotenv.config();
+
+// Connecting to database
+database.connect();
+ 
+// Middlewares
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+	cors({
+		origin: "*",
+		credentials: true,
+	})
+);
+app.use(
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: "/tmp/",
+	})
+);
+
+// Connecting to cloudinary
+cloudinaryConnect();
+
+// Setting up routes
+app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/course", courseRoutes);
+app.use("/api/v1/payment", paymentRoutes);
+app.use("/api/v1/reach", contactUsRoute);
+app.use("/api/v1/chat", chatRoutes);
+
+// Testing the server
+app.get("/", (req, res) => {
+	return res.json({
+		success: true,
+		message: "Your server is up and running ...",
+	});
+});
+
+// Initialize Socket.IO
+const io = socketIo(server, {
+	cors: {
+		origin: "*",
+		methods: ["GET", "POST"],
+		credentials: true
+	}
+});
+
+// Initialize chat socket functionality
+initializeChatSocket(io);
+
+// Listening to the server
+server.listen(PORT, () => {
+	console.log(`App is listening at ${PORT}`);
+	console.log(`Socket.IO server is running on port ${PORT}`);
+});
+
+// End of code.
