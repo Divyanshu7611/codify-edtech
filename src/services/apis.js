@@ -81,3 +81,16 @@ export const chatEndpoints = {
   GET_ONLINE_USERS: BASE_URL + "/chat/online",
   UPDATE_ONLINE_STATUS: BASE_URL + "/chat/status",
 }
+
+// ASSESSMENT ENDPOINTS
+export const assessmentEndpoints = {
+  CREATE_ASSESSMENT: BASE_URL + "/assessment/create",
+  GET_COURSE_ASSESSMENTS: BASE_URL + "/assessment/course",
+  GET_AVAILABLE_ASSESSMENTS: BASE_URL + "/assessment/available",
+  GET_ASSESSMENT_FOR_STUDENT: BASE_URL + "/assessment/student",
+  START_ASSESSMENT: BASE_URL + "/assessment",
+  SUBMIT_ASSESSMENT: BASE_URL + "/assessment/submit",
+  GET_ASSESSMENT_RESULTS: BASE_URL + "/assessment",
+  UPDATE_ASSESSMENT: BASE_URL + "/assessment",
+  DELETE_ASSESSMENT: BASE_URL + "/assessment",
+}

@@ -64,6 +64,13 @@ const coursesSchema = new mongoose.Schema({
       ref: "user",
     },
   ],
+  // Assessment-related fields
+  assessments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Assessment",
+    },
+  ],
   createdAt: { type: Date, default: Date.now },
 })
 

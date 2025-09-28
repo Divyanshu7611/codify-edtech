@@ -8,6 +8,7 @@ import { FaCheck } from "react-icons/fa"
 import { FiEdit2 } from "react-icons/fi"
 import { HiClock } from "react-icons/hi"
 import { RiDeleteBin6Line } from "react-icons/ri"
+import { VscQuestion } from "react-icons/vsc"
 import { useNavigate } from "react-router-dom"
 
 import { formatDate } from "../../../../services/formatDate"
@@ -125,6 +126,18 @@ export default function CoursesTable({ courses, setCourses }) {
                     className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
                   >
                     <FiEdit2 size={20} />
+                  </button>
+                  <button
+                    disabled={loading}
+                    onClick={() => {
+                      // Set the course in Redux state and navigate to assessment management
+                      dispatch(setCourse(course))
+                      navigate("/dashboard/assessment-management")
+                    }}
+                    title="Manage Assessments"
+                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-yellow-300"
+                  >
+                    <VscQuestion size={20} />
                   </button>
                   <button
                     disabled={loading}

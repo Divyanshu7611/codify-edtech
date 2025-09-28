@@ -29,6 +29,20 @@ export const sidebarLinks = [
     icon: "VscAdd",
   },
   {
+    id: 6,
+    name: "Create Assessment",
+    path: "/dashboard/create-assessment",
+    type: ACCOUNT_TYPE.INSTRUCTOR,
+    icon: "VscQuestion",
+  },
+  {
+    id: 9,
+    name: "Assessment Management",
+    path: "/dashboard/assessment-management",
+    type: ACCOUNT_TYPE.INSTRUCTOR,
+    icon: "VscGraph",
+  },
+  {
     id: 5,
     name: "Enrolled Courses",
     path: "/dashboard/enrolled-courses",
@@ -41,6 +55,13 @@ export const sidebarLinks = [
     path: "/dashboard/cart",
     type: ACCOUNT_TYPE.STUDENT,
     icon: "VscArchive",
+  },
+  {
+    id: 10,
+    name: "Assessments",
+    path: "/dashboard/student-assessments",
+    type: ACCOUNT_TYPE.STUDENT,
+    icon: "VscQuestion",
   },
   {
     id: 8,

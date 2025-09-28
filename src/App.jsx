@@ -10,15 +10,20 @@ import Navbar from "./components/Common/Navbar"
 import OpenRoute from "./components/core/Auth/OpenRoute"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
 import AddCourse from "./components/core/Dashboard/AddCourse"
+import AssessmentManagement from "./components/core/Dashboard/AssessmentManagement"
 import Cart from "./components/core/Dashboard/Cart"
+import CreateAssessment from "./components/core/Dashboard/CreateAssessment"
 import EditCourse from "./components/core/Dashboard/EditCourse"
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses"
 import Instructor from "./components/core/Dashboard/Instructor"
 import MyCourses from "./components/core/Dashboard/MyCourses"
 import MyProfile from "./components/core/Dashboard/MyProfile"
 import Settings from "./components/core/Dashboard/Settings"
+import StudentAssessments from "./components/core/Dashboard/StudentAssessments"
 import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import About from "./pages/About"
+import Assessment from "./pages/Assessment"
+import AssessmentResults from "./pages/AssessmentResults"
 import Catalog from "./pages/Catalog"
 import Chat from "./pages/Chat"
 import Contact from "./pages/Contact"
@@ -122,6 +127,8 @@ function App() {
                 path="dashboard/edit-course/:courseId"
                 element={<EditCourse />}
               />
+              <Route path="dashboard/create-assessment" element={<CreateAssessment />} />
+              <Route path="dashboard/assessment-management" element={<AssessmentManagement />} />
             </>
           )}
           {/* Route only for Students */}
@@ -132,6 +139,9 @@ function App() {
                 element={<EnrolledCourses />}
               />
               <Route path="/dashboard/cart" element={<Cart />} />
+              <Route path="dashboard/assessment/:assessmentId" element={<Assessment />} />
+              <Route path="dashboard/assessment-results" element={<AssessmentResults />} />
+              <Route path="dashboard/student-assessments" element={<StudentAssessments />} />
             </>
           )}
           <Route path="dashboard/settings" element={<Settings />} />

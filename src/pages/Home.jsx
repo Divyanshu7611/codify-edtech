@@ -455,6 +455,7 @@ import InstructorSection from "../components/core/HomePage/InstructorSection";
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
 import TimelineSection from "../components/core/HomePage/Timeline";
 import VideoBanner from "../assets/Images/video.mp4";
+import HeroSection from "../components/core/HomePage/Hero";
 
 // Animation variants
 const sectionVariants = {
@@ -481,7 +482,7 @@ function Home() {
         viewport={{ once: true, amount: 0.1 }} // Reduced amount for quicker animation trigger
       >
         {/* Become an Instructor Button */}
-        <motion.div variants={staggerVariants}>
+        {/* <motion.div variants={staggerVariants}>
           <Link to="/signup">
             <div className="mt-8 group mx-auto w-fit rounded-full bg-richblack-800 p-[1px] font-semibold text-richblack-200 shadow-[0_0px_60px_rgba(2,_6,_23,_0.5)] hover:shadow-blue-200/20 hover:scale-105 transition-all duration-500 cursor-pointer border border-blue-700/50">
               <div className="flex flex-row items-center gap-3 rounded-full px-6 py-2 bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-800 hover:to-blue-700 transition-colors duration-300">
@@ -493,51 +494,9 @@ function Home() {
         </motion.div>
 
         {/* Heading */}
-        <motion.div
-          className="text-center text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mt-6" // Heavier font, tighter line height for impact
-          variants={staggerVariants}
-        >
-          <motion.p variants={staggerVariants}>
-            Empower Your Future with
-          </motion.p>
-          <HighlightText text={"Cutting-Edge Code"} /> {/* Updated text for punch */}
-        </motion.div>
-
-        {/* Sub Heading */}
-        <motion.div
-          className="mt-4 text-center text-base lg:text-lg font-normal text-richblack-300 max-w-3xl mx-auto" // Slightly adjusted max-width for better centering
-          variants={staggerVariants}
-        >
-          Master online coding with expert-led courses. Learn at your own pace,
-          access a wealth of hands-on projects, quizzes, and receive **personalized feedback**
-          from industry professionals, no matter where you are in the world.
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div className="mt-10 flex flex-col sm:flex-row gap-6" variants={staggerVariants}>
-          <CTAButton active={true} linkto="/signup">
-            Start Learning Today
-          </CTAButton>
-          <CTAButton active={false} linkto="/login">
-            Book a Free Demo
-          </CTAButton>
-        </motion.div>
-
+        <HeroSection/>
         {/* Video */}
-        <motion.div
-          className="mx-3 my-16 w-full max-w-5xl rounded-2xl overflow-hidden shadow-[0_0_100px_0px] shadow-blue-400/30 border-2 border-richblack-700/50" // Enhanced shadow and added border
-          variants={staggerVariants}
-        >
-          <video
-            className="w-full h-auto object-cover"
-            muted
-            loop
-            autoPlay
-          >
-            <source src={VideoBanner} type="video/mp4" />
-          </video>
-        </motion.div>
-
+    
         {/* Code Section 1 */}
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
           <CodeBlocks
@@ -563,7 +522,7 @@ function Home() {
               active: false,
             }}
             codeColor="text-blue-400"
-            codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>CodeTech Page</title>\n<style>\nbody { font-family: 'Arial', sans-serif; }\n.header { color: #1e3c72; }\n</style>\n</head>\n<body>\n<h1 class="header">Hello World!</h1>\n<nav>\n\n</nav>\n</body>`} // Slightly refined code block
+            codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>Codify</title>\n<style>\nbody { font-family: 'Arial', sans-serif; }\n.header { color: #1e3c72; }\n</style>\n</head>\n<body>\n<h1 class="header">Hello World!</h1></body>`} // Slightly refined code block
             backgroundGradient="linear-gradient(135deg, #1e3c72, #2a5298)"
           />
         </motion.div>
@@ -595,6 +554,23 @@ function Home() {
             codeblock={`const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Welcome to CodeTech!');\n});\n\nconst PORT = 4000;\napp.listen(PORT, () => {\n  console.log('Server running on port');\n});`} // Changed code block content to backend example for variety
             backgroundGradient="linear-gradient(135deg, #2a5298, #1e3c72)" // Reversed gradient direction
           />
+
+              <motion.div
+          className="mx-3 my-16 w-full max-w-7xl rounded-2xl overflow-hidden shadow-[0_0_100px_0px] shadow-blue-400/30 border-2 border-richblack-700/50" // Enhanced shadow and added border
+          variants={staggerVariants}
+        >
+          <video
+            className="w-full h-auto object-cover"
+            muted
+            loop
+            autoPlay
+          >
+            <source src={VideoBanner} type="video/mp4" />
+          </video>
+        </motion.div>
+
+
+            <ExploreMore />
         </motion.div>
       </motion.div>
 
@@ -606,9 +582,13 @@ function Home() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
+        
         <div className="homepage_bg h-[320px] bg-cover bg-center">
           <div className="mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-8">
-            <div className="lg:h-[150px]"></div>
+            <div className="lg:h-[150px]">
+              
+               
+            </div>
             <motion.div className="flex flex-col sm:flex-row gap-8" variants={staggerVariants}>
               <CTAButton active={true} linkto="/catalog"> {/* Linked to /catalog */}
                 <div className="flex items-center gap-2 font-semibold">
@@ -617,7 +597,7 @@ function Home() {
                 </div>
               </CTAButton>
               <CTAButton active={false} linkto="/about"> {/* Linked to /about */}
-                <div className="font-semibold">Discover Our Story</div> {/* Updated button text */}
+                <div className="font-semibold text-white">Discover Our Story</div> {/* Updated button text */}
               </CTAButton>
             </motion.div>
           </div>
@@ -653,7 +633,7 @@ function Home() {
           <LearningLanguageSection />
           
           {/* Explore More Section (Added for better flow and hierarchy, assuming component exists) */}
-          <ExploreMore />
+       
         </div>
       </motion.div>
 
