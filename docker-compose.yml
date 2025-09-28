@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile   # path to frontend dockerfile at root
+    container_name: codify-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: dockerfile   # path to backend dockerfile inside server/
+    container_name: codify-backend
+    ports:
+      - "4000:4000"
+    environment:
+    - MAIL_USER=${MAIL_USER}
+    - MAIL_PASS=${MAIL_PASS}
+    - MAIL_HOST=${MAIL_HOST}
+    - RAZORPAY_KEY=${RAZORPAY_KEY}
+    - RAZORPAY_SECRET=${RAZORPAY_SECRET}
+    - FOLDER_NAME=${FOLDER_NAME}
+    - CLOUD_NAME=${CLOUD_NAME}
+    - API_KEY=${API_KEY}
+    - API_SECRET=${API_SECRET}
+    - JWT_SECRET=${JWT_SECRET}
+    - PORT=${PORT}
+    - MONGODB_URL=${MONGODB_URL}
+
+    volumes:
+      - ./server:/app
+      - /app/node_modules
