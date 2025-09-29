@@ -508,9 +508,11 @@ function Home() {
                 courses.
               </div>
             }
+
             subheading={
               "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you. They mentor you through real-world applications."
             } // Enhanced subheading
+
             ctabtn1={{
               btnText: "Try it Yourself",
               link: "/signup",
@@ -532,7 +534,7 @@ function Home() {
           <CodeBlocks
             position="lg:flex-row-reverse"
             heading={
-              <div className="w-full text-4xl lg:text-5xl font-semibold lg:w-[50%] leading-snug">
+              <div className="text-4xl lg:text-5xl font-semibold leading-snug">
                 Start
                 <HighlightText text={"building in seconds"} /> {/* Updated text for action */}
               </div>
@@ -554,9 +556,10 @@ function Home() {
             codeblock={`const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Welcome to CodeTech!');\n});\n\nconst PORT = 4000;\napp.listen(PORT, () => {\n  console.log('Server running on port');\n});`} // Changed code block content to backend example for variety
             backgroundGradient="linear-gradient(135deg, #2a5298, #1e3c72)" // Reversed gradient direction
           />
+        </motion.div>
 
               <motion.div
-          className="mx-3 my-16 w-full max-w-7xl rounded-2xl overflow-hidden shadow-[0_0_100px_0px] shadow-blue-400/30 border-2 border-richblack-700/50" // Enhanced shadow and added border
+          className="mx-3 my-16 w-full max-w-7xl rounded-2xl overflow-hidden" // Enhanced shadow and added border
           variants={staggerVariants}
         >
           <video
@@ -567,12 +570,17 @@ function Home() {
           >
             <source src={VideoBanner} type="video/mp4" />
           </video>
-        </motion.div>
-
+          <div>
 
             <ExploreMore />
+          </div>
         </motion.div>
+
+
       </motion.div>
+    
+
+  
 
       {/* Section 2 - Catalog and Skills */}
       <motion.div
