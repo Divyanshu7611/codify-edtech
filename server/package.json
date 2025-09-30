@@ -1,7 +1,7 @@
 {
-	"name": "studynotion-backend",
+	"name": "codify-backend",
 	"version": "1.0.0",
-	"description": "studynotion-backend",
+	"description": "codify-backend",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
@@ -9,7 +9,7 @@
 		"build": "echo \"No build needed for JS backend\""
 	},
 	"keywords": [
-		"studynotion-backend"
+		"codify-backend"
 	],
 	"author": "Saikat Mukherjee",
 	"license": "ISC",
