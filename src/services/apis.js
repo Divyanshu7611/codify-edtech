@@ -1,5 +1,5 @@
 // const BASE_URL = "https://codify-edtech.onrender/api/v1"
-const BASE_URL = "http://localhost:4000/api/v1"
+const BASE_URL = "https://codify-edtech.vercel.app/api/v1"
 
 
 // AUTH ENDPOINTS
