@@ -11,7 +11,7 @@
 	"keywords": [
 		"codify-backend"
 	],
-	"author": "Saikat Mukherjee",
+	"author": "Divyanshu Sharma",
 	"license": "ISC",
 	"dependencies": {
 		"bcrypt": "^5.1.0",
